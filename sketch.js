@@ -53,7 +53,8 @@ function draw(){
         noStroke();
         textSize(35)
         fill("white")
-        text("Score  " + score, width-300, 50)
+        //text("Score  " + score, width-300, 50);
+        text("score : " + score , width-300, 50);
     
     Engine.update(engine);
     //strokeWeight(4);
@@ -61,13 +62,13 @@ function draw(){
     box2.display();
     ground.display();
     pig1.display();
-    pig1.score();
+    //pig1.score();
     log1.display();
 
     box3.display();
     box4.display();
     pig3.display();
-    pig3.score();
+    //pig3.score();
     log3.display();
 
     box5.display();
@@ -95,6 +96,8 @@ function mouseReleased(){
 function keyPressed(){
     if(keyCode === 32){
        slingshot.attach(bird.body);
+       bird.trajectory = [];
+       Matter.Body.setPosition(bird.body,{ x:200,y:50});
     }
 }
 
